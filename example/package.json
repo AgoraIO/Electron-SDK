@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "electron-webpack dev",
+    "dev:errors": "USEERROR=1 electron-webpack dev",
+    "postinstall": "electron-builder install-app-deps",
     "compile": "electron-webpack",
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
@@ -13,7 +15,8 @@
     "immutable": "3.8.2",
     "react": "16.10.2",
     "react-dom": "16.10.2",
-    "source-map-support": "0.5.13"
+    "source-map-support": "0.5.13",
+    "yarn": "^1.19.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.5.5",

@@ -210,9 +210,9 @@ export default class App extends Component {
 
     /**
    * prepare screen share: initialize and join
-   * @param {string} token 
-   * @param {string} info 
-   * @param {number} timeout 
+   * @param {string} token
+   * @param {string} info
+   * @param {number} timeout
    */
   prepareScreenShare(token = null, info = '', timeout = 30000) {
     return new Promise((resolve, reject) => {
@@ -249,7 +249,7 @@ export default class App extends Component {
    * @param {*} rect null/if specified, {x: 0, y: 0, width: 0, height: 0}
    * @param {*} bitrate bitrate of video source screencapture
    */
-  startScreenShare(windowId=0, captureFreq=15, 
+  startScreenShare(windowId=0, captureFreq=15,
     rect={
       top: 0, left: 0, right: 0, bottom: 0
     }, bitrate=0
@@ -264,7 +264,7 @@ export default class App extends Component {
       // there's a known limitation that, videosourcesetvideoprofile has to be called at least once
       // note although it's called, it's not taking any effect, to control the screenshare dimension, use captureParam instead
       rtcEngine.videoSourceSetVideoProfile(43, false);
-      rtcEngine.videosourceStartScreenCaptureByWindow(windowId, {x: 0, y: 0, width: 0, height: 0}, {width: 0, height: 0, bitrate: 500, frameRate: 15})
+      rtcEngine.videoSourceStartScreenCaptureByWindow(windowId, {x: 0, y: 0, width: 0, height: 0}, {width: 0, height: 0, bitrate: 500, frameRate: 15})
       rtcEngine.startScreenCapturePreview();
     });
   }
@@ -283,7 +283,7 @@ export default class App extends Component {
       console.log(`start sharing display ${displayId}`)
       rtcEngine.videoSourceSetVideoProfile(43, false);
       // rtcEngine.videosourceStartScreenCaptureByWindow(windowId, {x: 0, y: 0, width: 0, height: 0}, {width: 0, height: 0, bitrate: 500, frameRate: 15})
-      rtcEngine.videosourceStartScreenCaptureByScreen(displayId, {x: 0, y: 0, width: 0, height: 0}, {width: 0, height: 0, bitrate: 500, frameRate: 5})
+      rtcEngine.videoSourceStartScreenCaptureByScreen(displayId, {x: 0, y: 0, width: 0, height: 0}, {width: 0, height: 0, bitrate: 500, frameRate: 5})
       rtcEngine.startScreenCapturePreview();
     });
   }
@@ -446,7 +446,7 @@ export default class App extends Component {
     } else {
       this.rtcEngine.removePublishStreamUrl(url)
     }
-    
+
     this.setState({
       rtmpTestOn: !this.state.rtmpTestOn
     })
@@ -799,11 +799,14 @@ class Window extends Component {
   }
 
   render() {
-    return (
-      <div className="window-item">
-        <div className="video-item" id={'video-' + this.props.uid}></div>
 
-      </div>
-    )
+
+    const isSS = this.props.role === 'localVideoSource' || this.props.role === 'remoteVideoSource' ? "screen": "";
+    return (
+      <div className={`window-item-${isSS}`}>
+        <div className="video-item" id={'video-' + this.props.uid}/>
+    </div>
+
+  )
   }
 }

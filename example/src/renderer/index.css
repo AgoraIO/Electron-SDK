@@ -16,8 +16,18 @@ html, body {
 }
 
 .window-item {
-  width: 320;
+  width: 320px;
   height: 240px;
+
+}
+
+.window-item-screen {
+  position: absolute !important;
+  width: 1920px;
+  height: 1080px;
+  top: 0px;
+  left: 10px;
+  z-index: 100;
 }
 
 .video-item {

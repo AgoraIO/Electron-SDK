@@ -1,4 +1,3 @@
-export const APP_ID = ''
 export const SHARE_ID = 2
 export const RTMP_URL = ''
 
@@ -148,3 +147,7 @@ export const audioScenarioList = [
     label: 'AUDIO_SCENARIO_CHATROOM_GAMING'
   } 
 ]
+
+export const APP_ID = '76a30762abc745ea83fa316ef2fa9887'
+
+export const FU_AUTH = ''
