@@ -22,7 +22,7 @@
   "gypfile": false,
   "dependencies": {
     "download": "^8.0.0",
-    "just-task": "^0.17.0",
+    "just-task": "^1.0.0",
     "lodash.isequal": "^4.5.0",
     "node-gyp": "^6.0.0",
     "rimraf": "^3.0.0",
