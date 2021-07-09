@@ -35,7 +35,7 @@
     "jest": "26.6.3",
     "prettier": "2.3.0",
     "ts-jest": "26.5.6",
-    "ts-node": "8.10.2",
+    "ts-node": "10.1.0",
     "tslint": "5.20.1",
     "typedoc": "0.20.36",
     "typescript": "3.9.9"
